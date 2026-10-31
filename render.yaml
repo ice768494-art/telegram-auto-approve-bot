@@ -1,13 +1,36 @@
+
 services:
   - type: web
     name: telegram-auto-approver
-    env: python
+    runtime: python
+    plan: starter
+
     buildCommand: pip install -r requirements.txt
-    startCommand: python bot.py
+    startCommand: python main.py
+
+    healthCheckPath: /health
+
     envVars:
       - key: BOT_TOKEN
-        sync: false # You will paste your bot token in the Render dashboard
-      - key: WELCOME_MESSAGE
-        value: "Hello! Your request to join our channel has been approved. Welcome!"
+        sync: false
+
+      - key: ADMIN_ID
+        value: "255448871"
+
       - key: AUTO_APPROVE
         value: "true"
+
+      - key: WELCOME_MESSAGE
+        value: |-
+          Hey {first_name}
+          Your request to join our channel has been approved.
+          This is advanced autorequest accept bot
+
+          Powered by - @AnimeNetworkTamil
+
+      - key: START_MESSAGE
+        value: |-
+          Hey {first_name}
+          This is advanced autorequest accept bot
+
+          Powered by - @AnimeNetworkTamil 
