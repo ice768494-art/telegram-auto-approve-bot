@@ -1,4 +1,3 @@
-
 services:
   - type: web
     name: telegram-auto-approver
@@ -22,15 +21,32 @@ services:
 
       - key: WELCOME_MESSAGE
         value: |-
-          Hey {first_name}
-          Your request to join our channel has been approved.
-          This is advanced autorequest accept bot
+          <blockquote>
+          🎉 <b>WELCOME, {first_name}!</b> 🎉
 
-          Powered by - @AnimeNetworkTamil
+          ━━━━━━━━━━━━━━━━━━
+
+          ✅ <b>YOUR JOIN REQUEST HAS BEEN APPROVED!</b>
+
+          🚀 You're now officially part of our amazing community!
+
+          💫 Enjoy the latest anime updates, episodes & exciting content.
+
+          ━━━━━━━━━━━━━━━━━━
+
+          🤖 <b>Powered By:</b> @AnimeNetworkTamil
+
+          💎 <i>Advanced Auto Request Approval Bot</i>
+          </blockquote>
 
       - key: START_MESSAGE
         value: |-
-          Hey {first_name}
-          This is advanced autorequest accept bot
+          <blockquote>
+          👋 <b>HEY, {first_name}!</b>
 
-          Powered by - @AnimeNetworkTamil 
+          🌟 Welcome to our Advanced Auto Request Approval Bot.
+
+          ⚡ Fast • Smart • Automatic
+
+          🤖 <b>Powered By:</b> @AnimeNetworkTamil
+          </blockquote>
