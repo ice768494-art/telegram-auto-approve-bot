@@ -182,8 +182,16 @@ async def cmd_start(message: types.Message):
     # Save user to DB
     add_user(user.id, user.username, user.full_name)
     # Send welcome message
-    await message.answer(format_message(START_MESSAGE, user))
-
+    await bot.send_message(
+    chat_id=pm_chat_id,
+    text=format_message(WELCOME_MESSAGE, user, chat),
+    parse_mode=ParseMode.HTML
+    )
+    
+    await message.answer(
+    format_message(START_MESSAGE, user),
+    parse_mode=ParseMode.HTML
+    )
 @router.message(Command("broadcast"))
 async def cmd_broadcast(message: types.Message):
     # 1. Authorize admin
