@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: telegram-auto-approver
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false # You will paste your bot token in the Render dashboard
+      - key: WELCOME_MESSAGE
+        value: "Hello! Your request to join our channel has been approved. Welcome!"
+      - key: AUTO_APPROVE
+        value: "true"
