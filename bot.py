@@ -23,7 +23,7 @@ logging.StreamHandler(sys.stdout)
 )
 logger = logging.getLogger("telegram_auto_approver")
 
-Load environment variables
+#Load environment variables
 
 load_dotenv()
 
