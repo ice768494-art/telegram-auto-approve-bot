@@ -189,9 +189,9 @@ async def cmd_start(message: types.Message):
 # JOIN REQUEST HANDLER
 # ==============================
 
+
 @router.chat_join_request()
 async def handle_chat_join_request(request: types.ChatJoinRequest):
-
     user = request.from_user
     chat = request.chat
 
@@ -202,52 +202,42 @@ async def handle_chat_join_request(request: types.ChatJoinRequest):
     if user.username:
         user_name_info += f" (@{user.username})"
 
-    logger.info(
-        f"Join request from {user_name_info} "
-        f"(ID: {user.id}) for {chat.title}"
-    )
+    logger.info(f"Join request received from {user_name_info}")
 
-    # Send private welcome message
+    # Send welcome image
     try:
         pm_chat_id = getattr(request, "user_chat_id", user.id)
 
         await bot.send_photo(
-    chat_id=pm_chat_id,
-    photo=WELCOME_IMAGE,
-    caption=format_message(WELCOME_MESSAGE, user, chat),
-    parse_mode="HTML"
-)
-
-logger.info(f"Welcome image sent to {user_name_info}")
-    except TelegramAPIError as e:
-        logger.warning(
-            f"Could not send private message to {user.id}: {e}"
+            chat_id=pm_chat_id,
+            photo=WELCOME_IMAGE,
+            caption=format_message(WELCOME_MESSAGE, user, chat),
+            parse_mode="HTML"
         )
 
+        logger.info(f"Welcome image sent to {user_name_info}")
+
+    except TelegramAPIError as e:
+        logger.warning(f"Could not send welcome image: {e}")
+
     except Exception as e:
-        logger.error(f"Unexpected welcome message error: {e}")
+        logger.error(f"Welcome image error: {e}")
 
     # Approve join request
     if AUTO_APPROVE:
         try:
             await request.approve()
-
-            logger.info(
-                f"Successfully approved {user_name_info}"
-            )
+            logger.info(f"Successfully approved {user_name_info}")
 
         except TelegramAPIError as e:
-            logger.error(
-                f"Failed to approve join request: {e}"
-            )
+            logger.error(f"Approval failed: {e}")
 
         except Exception as e:
             logger.error(f"Unexpected approval error: {e}")
 
     else:
-        logger.info(
-            f"Auto-approval disabled for {user_name_info}"
-        )
+        logger.info("Auto-approval is disabled.")
+
 
 
 # ==============================
