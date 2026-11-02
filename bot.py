@@ -38,12 +38,12 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 
 WELCOME_MESSAGE = """
-<b>Welcome🌼 I accepted you🪄</b>
+<b>Welcome To Our Channel ⚡</b>
 
-With Love by @YoruichiTheBlackCat 🐈‍⬛🤍
+Powered By : @AnimeNetworkTamil
 """
 
-WELCOME_IMAGE = "https://imgyx.pages.dev/CgJga"
+WELCOME_IMAGE = "https://imgyx.pages.dev/WnRUf"
 
 AUTO_APPROVE_STR = os.getenv("AUTO_APPROVE", "true").lower()
 AUTO_APPROVE = AUTO_APPROVE_STR in ("true", "1", "yes", "on")
@@ -56,13 +56,9 @@ ADMIN_ID = (
 )
 
 START_MESSAGE = """
-<b>Hey {username} I am a Cat Bot who can approve request instantly. I can approve your channel or group join requests.😉</b>
+<b>Hey {username} I am a Auto Acceptor who can approve request instantly. I can approve your channel or group join requests.😉</b>
 
-<blockquote>➲ Add bot as admin
-➲ Enable Join Requests
-➲ It will approve instantly</blockquote>
-
-With love by - @YoruichiTheBlackCat 🐈‍⬛🤍
+Powered By : @AnimeNetworkTamil
 """
 
 if not BOT_TOKEN or BOT_TOKEN == "your_bot_token_here":
