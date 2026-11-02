@@ -34,7 +34,16 @@ AUTO_APPROVE = AUTO_APPROVE_STR in ("true", "1", "yes", "on")
 
 ADMIN_ID_STR = os.getenv("ADMIN_ID")
 ADMIN_ID = int(ADMIN_ID_STR) if ADMIN_ID_STR and ADMIN_ID_STR.isdigit() else None
-START_MESSAGE = os.getenv("START_MESSAGE", "Hello! I am the Auto-Approve Bot for our channel. Please use the invite link to request access to the channel!")
+
+START_MESSAGE = """
+<b>Hey {username} I am a Cat Bot who can approve request instantly. I can approve your channel or group join requests.😉</b>
+
+<blockquote>➲ Add bot as admin
+➲ Enable Join Requests
+➲ It will approve instantly</blockquote>
+
+With love by - @YoruichiTheBlackCat 🐈‍⬛🤍
+"""
 
 if not BOT_TOKEN or BOT_TOKEN == "your_bot_token_here":
 logger.error("Error: BOT_TOKEN is not set in the .env file.")
@@ -181,13 +190,10 @@ else:
 
 --- Command Handlers ---
 
-@router.message(Command("start"))
-async def cmd_start(message: types.Message):
-user = message.from_user
-# Save user to DB
-add_user(user.id, user.username, user.full_name)
-# Send welcome message
-await message.answer(format_message(START_MESSAGE, user))
+await message.answer(
+    format_message(START_MESSAGE, user),
+    parse_mode="HTML"
+)
 
 @router.message(Command("broadcast"))
 async def cmd_broadcast(message: types.Message):
