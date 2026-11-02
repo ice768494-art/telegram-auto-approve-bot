@@ -46,8 +46,8 @@ With love by - @YoruichiTheBlackCat 🐈‍⬛🤍
 """
 
 if not BOT_TOKEN or BOT_TOKEN == "your_bot_token_here":
-logger.error("Error: BOT_TOKEN is not set in the .env file.")
-logger.error("Please edit the .env file and paste your Telegram Bot Token from @BotFather.")
+    logger.error("Error: BOT_TOKEN is not set in the .env file.")
+    logger.error("Please edit the .env file and paste your Telegram Bot Token from @BotFather.")
 sys.exit(1)
 
 SQLite Database Setup
