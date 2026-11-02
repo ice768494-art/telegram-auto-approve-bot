@@ -36,10 +36,13 @@ load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-WELCOME_MESSAGE = os.getenv(
-    "WELCOME_MESSAGE",
-    "Hello! Your request to join our channel has been approved. Welcome!"
-)
+
+WELCOME_MESSAGE = """
+<b>Welcome🌼 I accepted you🪄</b>
+
+With Love by @YoruichiTheBlackCat 🐈‍⬛🤍
+"""
+
 WELCOME_IMAGE = "https://imgyx.pages.dev/CgJga"
 
 AUTO_APPROVE_STR = os.getenv("AUTO_APPROVE", "true").lower()
