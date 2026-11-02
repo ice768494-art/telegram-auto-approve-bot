@@ -211,13 +211,14 @@ async def handle_chat_join_request(request: types.ChatJoinRequest):
     try:
         pm_chat_id = getattr(request, "user_chat_id", user.id)
 
-        await bot.send_message(
-            chat_id=pm_chat_id,
-            text=format_message(WELCOME_MESSAGE, user, chat)
-        )
+        await bot.send_photo(
+    chat_id=pm_chat_id,
+    photo=WELCOME_IMAGE,
+    caption=format_message(WELCOME_MESSAGE, user, chat),
+    parse_mode="HTML"
+)
 
-        logger.info(f"Welcome message sent to {user_name_info}")
-
+logger.info(f"Welcome image sent to {user_name_info}")
     except TelegramAPIError as e:
         logger.warning(
             f"Could not send private message to {user.id}: {e}"
