@@ -11,7 +11,7 @@ from aiogram.exceptions import TelegramAPIError
 from aiogram.filters import Command
 from aiohttp import web
 
-Initialize logging
+#Initialize logging
 
 logging.basicConfig(
 level=logging.INFO,
