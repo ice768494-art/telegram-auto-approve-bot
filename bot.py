@@ -40,6 +40,7 @@ WELCOME_MESSAGE = os.getenv(
     "WELCOME_MESSAGE",
     "Hello! Your request to join our channel has been approved. Welcome!"
 )
+WELCOME_IMAGE = "https://imgyx.pages.dev/CgJga"
 
 AUTO_APPROVE_STR = os.getenv("AUTO_APPROVE", "true").lower()
 AUTO_APPROVE = AUTO_APPROVE_STR in ("true", "1", "yes", "on")
